@@ -1,0 +1,51 @@
+NPL bin dir: C:\Users\linfe\ParaCraftSDK\NPLRuntime\win\bin\
+no packages at: C:\Users\linfe\ParaCraftSDK\NPLRuntime\win\packages
+ParaEngine.sig file not found
+WorkingDir: C:\Users\linfe\LargeScaleLogSystem\setup\client
+Development directory is set to : ../../
+OS information:
+OS version:Microsoft  (build 9200), 64-bit
+Number of processors:4
+Processor type:586
+TotalPhysicalMemory:8268900
+FreePhysicalMemory:4274784
+
+ParaEngine Root Dir is C:/Users/linfe/LargeScaleLogSystem/setup/client/
+./packages dir: C:/Users/linfe/LargeScaleLogSystem/setup/client/
+main loop: npl_mod/TableDBApp/App.lua 
+CAssetManifest loaded 0 files
+CAsyncLoader is started with 1 IO thread and 2 worker thread
+Absolute path is used for dll: PhysicsBT.dll
+LoadLibrary (PhysicsBT.dll) failed with error 87: ²ÎÊý´íÎó¡£
+
+Failed loading plug-in: PhysicsBT.dll
+note: no physics engine found, null physics is used 
+warning: script file script/config.lua not found
+font System;12;bold is created 
+(main) state is now running in a separate thread. It is more responsive now. 
+ParaEngine LuaJIT 32bits version:LuaJIT 2.0.3
+Jit status:true, CMOV, SSE2, SSE3, SSE4.1, fold, cse, dce, fwd, dse, narrow, loop, abc, sink, fuse 
+ffi loaded shared lib: ParaEngineClient
+warning: script file npl_mod/Raft/RpcClient.lua not found
+2017-07-12 23:03:31|main|INFO|App|app arg:8090client
+2017-07-12 23:03:31|main|INFO|App|config:{ logIndex = 0, servers = { { endpoint = "tcp://localhost:9001", id = 1 }, { endpoint = "tcp://localhost:9002", id = 2 }, { endpoint = "tcp://localhost:9003", id = 3 } }, lastLogIndex = 0 }
+2017-07-12 23:03:31|main|INFO|App|local state info{ host = "localhost", authority = "localhost:9001", scheme = "tcp", port = "9001" }
+NPL server 0.1 is listening on localhost:9004
+TCPKeepAlive: false
+AppKeepAlive: false
+IdleTimeout: true
+IdleTimeoutPeriod: 120000
+UseCompression(incoming): false
+CompressionLevel: -1
+CompressionThreshold: 204800
+2017-07-12 23:03:31|main|INFO|Rpc|RaftRequestRPCInit installed to file Rpc/RaftRequestRPCInit.lua
+2017-07-12 23:03:31|main|INFO|Rpc|RTDBRequestRPC installed to file Rpc/RTDBRequestRPC.lua
+2017-07-12 23:03:31|main|ERROR|Rpc|activate on server1:Rpc/RaftRequestRPCInit.lua failed 2, msg type:run
+2017-07-12 23:03:31|main|ERROR|Rpc|activate on server2:Rpc/RaftRequestRPCInit.lua failed 2, msg type:run
+2017-07-12 23:03:31|main|ERROR|Rpc|activate on server3:Rpc/RaftRequestRPCInit.lua failed 2, msg type:run
+2017-07-12 23:03:31|main|ERROR|Rpc|activate on server3:Rpc/RTDBRequestRPC.lua failed 2, msg type:run
+2017-07-12 23:03:31|main|ERROR|Rpc|activate on server3:Rpc/RTDBRequestRPC.lua failed 2, msg type:run
+NPL max pending incoming connections allowed is 1000
+warning: no activate function found for Rpc/RTDBRequestRPC.lua
+2017-07-12 23:03:41|main|warn|RaftSqliteStore|timed out
+warning: no activate function found for Rpc/RTDBRequestRPC.lua

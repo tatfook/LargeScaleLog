@@ -1,0 +1,57 @@
+NPL bin dir: C:\Users\linfe\ParaCraftSDK\NPLRuntime\win\bin\
+no packages at: C:\Users\linfe\ParaCraftSDK\NPLRuntime\win\packages
+ParaEngine.sig file not found
+WorkingDir: C:\Users\linfe\LargeScaleLogSystem\setup\server5
+Development directory is set to : ../../
+OS information:
+OS version:Microsoft  (build 9200), 64-bit
+Number of processors:4
+Processor type:586
+TotalPhysicalMemory:8268900
+FreePhysicalMemory:4316784
+
+ParaEngine Root Dir is C:/Users/linfe/LargeScaleLogSystem/setup/server5/
+./packages dir: C:/Users/linfe/LargeScaleLogSystem/setup/server5/
+main loop: npl_mod/TableDBApp/App.lua 
+CAssetManifest loaded 0 files
+CAsyncLoader is started with 1 IO thread and 2 worker thread
+Absolute path is used for dll: PhysicsBT.dll
+LoadLibrary (PhysicsBT.dll) failed with error 87: ²ÎÊý´íÎó¡£
+
+Failed loading plug-in: PhysicsBT.dll
+note: no physics engine found, null physics is used 
+warning: script file script/config.lua not found
+font System;12;bold is created 
+(main) state is now running in a separate thread. It is more responsive now. 
+ParaEngine LuaJIT 32bits version:LuaJIT 2.0.3
+Jit status:true, CMOV, SSE2, SSE3, SSE4.1, fold, cse, dce, fwd, dse, narrow, loop, abc, sink, fuse 
+ffi loaded shared lib: ParaEngineClient
+warning: script file npl_mod/Raft/RpcClient.lua not found
+2017-07-12 23:02:42|main|INFO|App|app arg:8005server
+2017-07-12 23:02:42|main|INFO|App|config:{ logIndex = 0, servers = { { endpoint = "tcp://localhost:9005", id = 5 } }, lastLogIndex = 0 }
+2017-07-12 23:02:42|main|INFO|App|local state info{ host = "localhost", authority = "localhost:9005", scheme = "tcp", port = "9005" }
+2017-07-12 23:02:42|main|INFO|RaftServer|Server 5 started
+2017-07-12 23:02:42|main|INFO|Rpc|RaftRequestRPCInit installed to file Rpc/RaftRequestRPCInit.lua
+2017-07-12 23:02:42|main|INFO|Rpc|RTDBRequestRPC installed to file Rpc/RTDBRequestRPC.lua
+2017-07-12 23:02:42|main|INFO|RpcListener|ParaEngine LuaJIT 32bits version:LuaJIT 2.0.3
+startListeningJit status:true, CMOV, SSE2, SSE3, SSE4.1, fold, cse, dce, fwd, dse, narrow, loop, abc, sink, fuse 
+
+2017-07-12 23:02:42|main|INFO|Rpc|ffi loaded shared lib: ParaEngineClient
+RaftRequestRPC installed to file Rpc/RaftRequestRPC.lua
+NPL server 0.1 is listening on localhost:9005
+TCPKeepAlive: true
+AppKeepAlive: false
+IdleTimeout: true
+IdleTimeoutPeriod: 1200000
+UseCompression(incoming): false
+CompressionLevel: -1
+CompressionThreshold: 204800
+2017-07-12 23:02:42|main|ERROR|Rpc|activate on server5:Rpc/RaftRequestRPCInit.lua failed 2, msg type:run
+NPL max pending incoming connections allowed is 1000
+2017-07-12 23:02:42|6824|incoming connection (::1/51631) is established and assigned a temporary id (~1). 
+2017-07-12 23:02:42|tdb|info|TableDatabase|IO thread started in NPL thread: tdb
+2017-07-12 23:02:46|main|INFO|RaftServer|requestVote started with term 1
+2017-07-12 23:02:46|main|ERROR|RaftServer|Election Timer is never started but is requested to stop, protential a bug
+2017-07-12 23:02:46|main|INFO|RaftServer|add initial configuration to log store
+2017-07-12 23:02:46|main|ERROR|RaftServer|committed an empty LogEntry at 0 !!
+2017-07-12 23:02:46|main|INFO|RaftServer|configuration at index 1 is committed

@@ -1,0 +1,11 @@
+<tabledb>
+	<providers>
+		<provider type="TableDB.RaftSqliteStore" name="raft" file="(g1)npl_mod/TableDB/RaftSqliteStore.lua">./,localhost,9004,4
+		</provider>
+	</providers>
+	<tables>
+		<table provider="raft" name="User1"/>
+		<table provider="raft" name="User2"/>
+		<table provider="raft" name="default" />
+	</tables>
+</tabledb>
