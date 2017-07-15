@@ -1,18 +1,18 @@
 NPL bin dir: C:\Users\linfe\ParaCraftSDK\NPLRuntime\win\bin\
 no packages at: C:\Users\linfe\ParaCraftSDK\NPLRuntime\win\packages
 ParaEngine.sig file not found
-WorkingDir: C:\Users\linfe\LargeScaleLogSystem
+WorkingDir: D:\git\LargeScaleLogSystem
 Development directory is set to : ../../
 OS information:
 OS version:Microsoft  (build 9200), 64-bit
 Number of processors:4
 Processor type:586
 TotalPhysicalMemory:8268900
-FreePhysicalMemory:4192800
+FreePhysicalMemory:5316264
 
-ParaEngine Root Dir is C:/Users/linfe/LargeScaleLogSystem/
+ParaEngine Root Dir is D:/git/LargeScaleLogSystem/
 search path: npl_packages/main/
-./packages dir: C:/Users/linfe/LargeScaleLogSystem/
+./packages dir: D:/git/LargeScaleLogSystem/
 main loop: UnitTest.lua 
 CAssetManifest loaded 0 files
 CAsyncLoader is started with 1 IO thread and 2 worker thread
@@ -58,7 +58,7 @@ Success : 100% - 9 / 9
 =========================================================
 Success : 100% - 10 / 10
 program exited with code 0
-2017-07-12 23:22:22|8012|0|service is stopped|Line 39: void __thiscall ParaEngine::CParaEngineService::StopService(void):..\..\..\..\Client\trunk\ParaEngineClient\Core\ParaEngineService.cpp|
+2017-07-15 21:30:39|6940|0|service is stopped|Line 39: void __thiscall ParaEngine::CParaEngineService::StopService(void):..\..\..\..\Client\trunk\ParaEngineClient\Core\ParaEngineService.cpp|
 NPL State main exited
 		NPL thread local memory allocator released 2621440 bytes
 CAsyncLoader worker thread 0 of 6 is exited

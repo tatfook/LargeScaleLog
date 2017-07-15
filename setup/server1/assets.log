@@ -1,12 +1,9 @@
-2017-07-12 23:00:50|10068|CAsyncLoader IO Thread started2017-07-12 23:00:50|900|Async Processing Thread Local(0) Started
-2017-07-12 23:00:50|8376|Async Processing Thread Asset(1) Started
-2017-07-12 23:00:50|15284|Async Processing Thread Asset(1) Started
-2017-07-12 23:00:50|8120|Async Processing Thread Web(2) Started
-2017-07-12 23:00:50|12740|Async Processing Thread BigFile(3) Started
-2017-07-12 23:00:50|3372|Async Processing Thread AudioFile(4) Started
-2017-07-12 23:00:51|8012|ParaFile.OpenAssetFile using local file:config.properties
-2017-07-12 23:00:51|8012|ParaFile.OpenAssetFile using local file:cluster.json
-2017-07-12 23:00:51|8012|ParaFile.OpenAssetFile using local file:server.state
-2017-07-12 23:00:51|8012|ParaFile.OpenAssetFile using local file:cluster.json
-2017-07-12 23:02:23|8496|ParaFile.OpenAssetFile using local file:temp/test_raft_database//tabledb.config.xml
-2017-07-12 23:02:23|8496|ParaFile.OpenAssetFile using local file:temp/test_raft_database/User.db
+2017-07-15 21:31:42|10272|Async Processing Thread Local(0) Started
+2017-07-15 21:31:42|11948|Async Processing Thread Asset(1) Started
+2017-07-15 21:31:42|1880|Async Processing Thread Asset(1) Started
+2017-07-15 21:31:42|1028|Async Processing Thread Web(2) Started
+2017-07-15 21:31:42|10268|Async Processing Thread BigFile(3) Started
+2017-07-15 21:31:42|10836|Async Processing Thread AudioFile(4) Started
+2017-07-15 21:31:42|5320|CAsyncLoader IO Thread started2017-07-15 21:31:42|12116|ParaFile.OpenAssetFile using local file:config.properties
+2017-07-15 21:31:42|12116|ParaFile.OpenAssetFile using local file:cluster.json
+2017-07-15 21:31:42|12116|ParaFile.OpenAssetFile using local file:server.state
