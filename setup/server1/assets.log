@@ -1,9 +1,20 @@
-2017-07-15 21:31:42|10272|Async Processing Thread Local(0) Started
-2017-07-15 21:31:42|11948|Async Processing Thread Asset(1) Started
-2017-07-15 21:31:42|1880|Async Processing Thread Asset(1) Started
-2017-07-15 21:31:42|1028|Async Processing Thread Web(2) Started
-2017-07-15 21:31:42|10268|Async Processing Thread BigFile(3) Started
-2017-07-15 21:31:42|10836|Async Processing Thread AudioFile(4) Started
-2017-07-15 21:31:42|5320|CAsyncLoader IO Thread started2017-07-15 21:31:42|12116|ParaFile.OpenAssetFile using local file:config.properties
-2017-07-15 21:31:42|12116|ParaFile.OpenAssetFile using local file:cluster.json
-2017-07-15 21:31:42|12116|ParaFile.OpenAssetFile using local file:server.state
+2017-07-17 11:41:24|20908|CAsyncLoader IO Thread started2017-07-17 11:41:24|21576|Async Processing Thread Local(0) Started
+2017-07-17 11:41:24|13896|Async Processing Thread Asset(1) Started
+2017-07-17 11:41:24|7704|Async Processing Thread Asset(1) Started
+2017-07-17 11:41:24|2544|Async Processing Thread Web(2) Started
+2017-07-17 11:41:24|12356|Async Processing Thread BigFile(3) Started
+2017-07-17 11:41:24|7876|Async Processing Thread AudioFile(4) Started
+2017-07-17 11:41:24|19432|ParaFile.OpenAssetFile using local file:config.properties
+2017-07-17 11:41:24|19432|ParaFile.OpenAssetFile using local file:cluster.json
+2017-07-17 11:41:24|19432|ParaFile.OpenAssetFile using local file:server.state
+2017-07-17 11:41:24|19432|ParaFile.OpenAssetFile using local file:cluster.json
+2017-07-17 11:41:37|20060|ParaFile.OpenAssetFile using local file:temp/test_raft_database//tabledb.config.xml
+2017-07-17 11:41:37|20060|ParaFile.OpenAssetFile using local file:temp/test_raft_database/User.db
+2017-07-17 11:41:37|20060|DBEntity.PrepareDatabaseFile using local file:temp/test_raft_database/User.db
+2017-07-17 11:41:38|20060|ParaFile.OpenAssetFile using local file:temp/test_raft_database/insertNoIndex.db
+2017-07-17 11:41:38|20060|DBEntity.PrepareDatabaseFile using local file:temp/test_raft_database/insertNoIndex.db
+2017-07-17 11:41:40|20060|ParaFile.OpenAssetFile using local file:temp/test_raft_database/PerfTest.db
+2017-07-17 11:41:40|20060|DBEntity.PrepareDatabaseFile using local file:temp/test_raft_database/PerfTest.db
+2017-07-17 11:41:40|20060|ParaFile.OpenAssetFile using local file:temp/test_raft_database/TestBulkOps.db
+2017-07-17 11:41:40|20060|DBEntity.PrepareDatabaseFile using local file:temp/test_raft_database/TestBulkOps.db
+2017-07-17 11:42:20|20060|ParaFile.OpenAssetFile using local file:temp/test_raft_database/blockingAPI.db

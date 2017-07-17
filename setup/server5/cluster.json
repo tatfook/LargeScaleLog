@@ -1,1 +1,1 @@
-{"logIndex":33,"servers":[{"endpoint":"tcp://localhost:9001","id":1},{"endpoint":"tcp://localhost:9002","id":2},{"endpoint":"tcp://localhost:9003","id":3},{"endpoint":"tcp://localhost:9005","id":5}],"lastLogIndex":0}
+{"logIndex":1840,"servers":[{"endpoint":"tcp://localhost:9001","id":1},{"endpoint":"tcp://localhost:9002","id":2},{"endpoint":"tcp://localhost:9003","id":3},{"endpoint":"tcp://localhost:9005","id":5}],"lastLogIndex":0}

@@ -1,9 +1,9 @@
-2017-07-13 18:07:19|9728|Async Processing Thread Asset(1) Started
-2017-07-13 18:07:19|13492|CAsyncLoader IO Thread started2017-07-13 18:07:19|7224|Async Processing Thread Asset(1) Started
-2017-07-13 18:07:19|9860|Async Processing Thread Local(0) Started
-2017-07-13 18:07:19|17792|Async Processing Thread Web(2) Started
-2017-07-13 18:07:19|7648|Async Processing Thread BigFile(3) Started
-2017-07-13 18:07:19|16868|Async Processing Thread AudioFile(4) Started
-2017-07-13 18:07:19|11392|ParaFile.OpenAssetFile using local file:config.properties
-2017-07-13 18:07:19|11392|ParaFile.OpenAssetFile using local file:cluster.json
-2017-07-13 18:07:19|11392|ParaFile.OpenAssetFile using local file:./config.properties
+2017-07-17 11:44:57|20716|CAsyncLoader IO Thread started2017-07-17 11:44:57|22112|Async Processing Thread Asset(1) Started
+2017-07-17 11:44:57|15356|Async Processing Thread Asset(1) Started
+2017-07-17 11:44:57|22348|Async Processing Thread Web(2) Started
+2017-07-17 11:44:57|21616|Async Processing Thread BigFile(3) Started
+2017-07-17 11:44:57|5040|Async Processing Thread Local(0) Started
+2017-07-17 11:44:57|8568|Async Processing Thread AudioFile(4) Started
+2017-07-17 11:44:58|21768|ParaFile.OpenAssetFile using local file:config.properties
+2017-07-17 11:44:58|21768|ParaFile.OpenAssetFile using local file:cluster.json
+2017-07-17 11:44:58|21768|ParaFile.OpenAssetFile using local file:./config.properties

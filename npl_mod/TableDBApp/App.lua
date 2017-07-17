@@ -34,7 +34,7 @@ local MessagePrinter = commonlib.gettable("TableDBApp.MessagePrinter");
 local util = commonlib.gettable("System.Compiler.lib.util")
 local LoggerFactory = NPL.load("(gl)npl_mod/Raft/LoggerFactory.lua");
 
-local logger = LoggerFactory.getLogger("App")
+logger = LoggerFactory.getLogger("App")
 
 
 local baseDir = ParaEngine.GetAppCommandLineByParam("baseDir", "");
@@ -92,24 +92,29 @@ end
 
 local function executeAsClient()
 
+	if clientMode == "test" then
+		NPL.load("(gl)performance_test/PerformanceTest.lua");
+		--logger.info("%s", clientMode)
+		PerformanceTest();
+	end
     if clientMode == "appendEntries" then
       NPL.load("(gl)npl_mod/TableDB/test/test_TableDatabase.lua");
       TestSQLOperations();
-      -- TestInsertThroughputNoIndex()
-      -- TestPerformance()
-      -- TestBulkOperations()
-      -- TestTimeout()
-      -- TestBlockingAPI()
-      -- TestBlockingAPILatency()
-      -- TestConnect()
-      -- TestRemoveIndex()
-      -- TestTable()
-      -- TestTableDatabase();
-      -- TestRangedQuery();
-      -- TestPagination()
-      -- TestCompoundIndex()
-      -- TestCountAPI()
-      -- TestDelete()
+      TestInsertThroughputNoIndex()
+      TestPerformance()
+      TestBulkOperations()
+      TestTimeout()
+      TestBlockingAPI()
+      TestBlockingAPILatency()
+      TestConnect()
+      TestRemoveIndex()
+      TestTable()
+      TestTableDatabase();
+      TestRangedQuery();
+      TestPagination()
+      TestCompoundIndex()
+      TestCountAPI()
+      TestDelete()
     
     else
       NPL.load("(gl)npl_mod/TableDB/RaftSqliteStore.lua");

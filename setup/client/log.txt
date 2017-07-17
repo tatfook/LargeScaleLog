@@ -8,7 +8,7 @@ OS version:Microsoft  (build 9200), 64-bit
 Number of processors:4
 Processor type:586
 TotalPhysicalMemory:8268900
-FreePhysicalMemory:2407072
+FreePhysicalMemory:5150828
 
 ParaEngine Root Dir is D:/git/LargeScaleLogSystem/setup/client/
 search path: ../../npl_packages/main/
@@ -28,9 +28,9 @@ ParaEngine LuaJIT 32bits version:LuaJIT 2.0.3
 Jit status:true, CMOV, SSE2, SSE3, SSE4.1, fold, cse, dce, fwd, dse, narrow, loop, abc, sink, fuse 
 ffi loaded shared lib: ParaEngineClient
 warning: script file npl_mod/Raft/RpcClient.lua not found
-2017-07-13 18:07:19|main|INFO|App|app arg:8090client
-2017-07-13 18:07:19|main|INFO|App|config:{ logIndex = 0, servers = { { endpoint = "tcp://localhost:9001", id = 1 }, { endpoint = "tcp://localhost:9002", id = 2 }, { endpoint = "tcp://localhost:9003", id = 3 } }, lastLogIndex = 0 }
-2017-07-13 18:07:19|main|INFO|App|local state info{ host = "localhost", authority = "localhost:9001", scheme = "tcp", port = "9001" }
+2017-07-17 11:44:58|main|INFO|App|app arg:8090client
+2017-07-17 11:44:58|main|INFO|App|config:{ logIndex = 0, servers = { { endpoint = "tcp://localhost:9001", id = 1 }, { endpoint = "tcp://localhost:9002", id = 2 }, { endpoint = "tcp://localhost:9003", id = 3 } }, lastLogIndex = 0 }
+2017-07-17 11:44:58|main|INFO|App|local state info{ host = "localhost", authority = "localhost:9001", scheme = "tcp", port = "9001" }
 NPL server 0.1 is listening on localhost:9004
 TCPKeepAlive: false
 AppKeepAlive: false
@@ -39,25 +39,25 @@ IdleTimeoutPeriod: 120000
 UseCompression(incoming): false
 CompressionLevel: -1
 CompressionThreshold: 204800
-2017-07-13 18:07:19|main|INFO|Rpc|RaftRequestRPCInit installed to file Rpc/RaftRequestRPCInit.lua
-2017-07-13 18:07:19|main|INFO|Rpc|RTDBRequestRPC installed to file Rpc/RTDBRequestRPC.lua
-2017-07-13 18:07:19|main|ERROR|Rpc|activate on server1:Rpc/RaftRequestRPCInit.lua failed 2, msg type:run
-2017-07-13 18:07:19|main|ERROR|Rpc|activate on server2:Rpc/RaftRequestRPCInit.lua failed 2, msg type:run
-2017-07-13 18:07:19|main|ERROR|Rpc|activate on server3:Rpc/RaftRequestRPCInit.lua failed 2, msg type:run
-2017-07-13 18:07:19|main|ERROR|Rpc|activate on server3:Rpc/RTDBRequestRPC.lua failed 2, msg type:run
-2017-07-13 18:07:19|main|ERROR|Rpc|activate on server3:Rpc/RTDBRequestRPC.lua failed 2, msg type:run
+2017-07-17 11:44:58|main|INFO|Rpc|RaftRequestRPCInit installed to file Rpc/RaftRequestRPCInit.lua
+2017-07-17 11:44:58|main|INFO|Rpc|RTDBRequestRPC installed to file Rpc/RTDBRequestRPC.lua
+2017-07-17 11:44:58|main|ERROR|Rpc|activate on server1:Rpc/RaftRequestRPCInit.lua failed 2, msg type:run
+2017-07-17 11:44:58|main|ERROR|Rpc|activate on server2:Rpc/RaftRequestRPCInit.lua failed 2, msg type:run
+2017-07-17 11:44:58|main|ERROR|Rpc|activate on server3:Rpc/RaftRequestRPCInit.lua failed 2, msg type:run
+2017-07-17 11:44:58|main|ERROR|Rpc|activate on server3:Rpc/RTDBRequestRPC.lua failed 2, msg type:run
+2017-07-17 11:44:58|main|ERROR|Rpc|activate on server3:Rpc/RTDBRequestRPC.lua failed 2, msg type:run
 NPL max pending incoming connections allowed is 1000
-2017-07-13 18:07:19|18304|incoming connection (::1/58983) is established and assigned a temporary id (~1). 
-2017-07-13 18:07:21|18304|incoming connection (::1/58984) is established and assigned a temporary id (~2). 
-2017-07-13 18:07:21|main|INFO|RaftSqliteStore|the connect request has been accepted
-2017-07-13 18:07:21|main|INFO|App|the addServer request has been accepted
+2017-07-17 11:44:58|3456|incoming connection (::1/55332) is established and assigned a temporary id (~1). 
+2017-07-17 11:44:59|3456|incoming connection (::1/55335) is established and assigned a temporary id (~2). 
+2017-07-17 11:44:59|main|INFO|RaftSqliteStore|the connect request has been accepted
+2017-07-17 11:44:59|main|INFO|App|the addServer request has been accepted
 network: handle_read stopped, asio msg: 远程主机强迫关闭了一个现有的连接。. Connection will be closed 
-2017-07-13 18:10:41|18304|connection closed (localhost/9003) with id (server3). 
 network: handle_read stopped, asio msg: 远程主机强迫关闭了一个现有的连接。. Connection will be closed 
-2017-07-13 18:10:41|18304|connection closed (::1/58984) with id (server3:). 
+2017-07-17 11:45:56|3456|connection closed (localhost/9001) with id (server1). 
+2017-07-17 11:45:56|3456|connection closed (::1/55335) with id (server1:). 
 network: handle_read stopped, asio msg: 远程主机强迫关闭了一个现有的连接。. Connection will be closed 
-2017-07-13 18:10:41|18304|connection closed (localhost/9001) with id (server1). 
+2017-07-17 11:45:56|3456|connection closed (::1/55332) with id (~1). 
 network: handle_read stopped, asio msg: 远程主机强迫关闭了一个现有的连接。. Connection will be closed 
-2017-07-13 18:10:41|18304|connection closed (::1/58983) with id (~1). 
+2017-07-17 11:45:56|3456|connection closed (localhost/9002) with id (server2). 
 network: handle_read stopped, asio msg: 远程主机强迫关闭了一个现有的连接。. Connection will be closed 
-2017-07-13 18:10:41|18304|connection closed (localhost/9002) with id (server2). 
+2017-07-17 11:45:56|3456|connection closed (localhost/9003) with id (server3). 
