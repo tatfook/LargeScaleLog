@@ -23,7 +23,7 @@ if(is_ajax()) then
 		wp_send_json(workspaceDir);
 	end);
 	local dateNum2Str = function(dateNum)
-		local dateStr = os.date("%y-%m-%d %H:%M:%S",os.time())
+		local dateStr = os.date("%y-%m-%d %H:%M:%S",dateNum)
 		return dateStr
 	end
 	local dateStr2Num = function(dateStr)
@@ -53,6 +53,7 @@ if(is_ajax()) then
 		local page = params.page;
 		local pageSize =  params.pageSize;
 		
+		
 		if(not dbPath:match("[/\\]$")) then
 			dbPath = dbPath .. "/";
 		end
@@ -66,7 +67,7 @@ if(is_ajax()) then
 		sqlStr = string.format("select * from Collection limit %d, %d;", skip, pageSize);
 		table:exec(sqlStr, function(err, data) resume(err, data) end);
 		err, data = yield();
-
+		
 		wp_send_json({total=count, table = data});
 	end);
 	add_action('wp_ajax_getResult', function()
@@ -76,7 +77,8 @@ if(is_ajax()) then
 		local pageSize =  params.pageSize;
 		local startDate = dateStrNum2Num(params.startDate);
 		local endDate = dateStrNum2Num(params.endDate);
-		
+		local search = params.search;
+		local dateFormat = params.dateFormat;
 		
 		if(not dbPath:match("[/\\]$")) then
 			dbPath = dbPath .. "/";
@@ -89,19 +91,41 @@ if(is_ajax()) then
 		err, data = yield();
 		local count = data[1].count;
 		
-		--db_handle:EnableSyncMode(true);
+		
 		table:find({}, function(err, rows) resume(err, rows) end);
 		err, rows = yield();
-		local data = {};
+		local dataDate = {};
 		for i,row in pairs(rows) do
-			
-			dateNum = dateStr2Num(row.time);
-			if(dateNum>startDate and dateNum<endDate) then
-				data[#data+1] = {_id = i, value = row};
+			if(row.time>startDate and row.time<endDate) then
+				dataDate[#dataDate+1] = {id = i, value = row};
 			end
 		end
-
-		wp_send_json({total=#data, table = data, totalDataNum = count});
+		local tempNum = 0;
+		local dataDateNum = #dataDate;
+		local dataSearch = {};
+		if(search~="") then
+			for i,row in pairs(dataDate) do
+				for index,value in pairs(row.value) do
+					if(value==search) then
+						dataSearch[#dataSearch+1] = row;
+					end
+				end
+			end
+		else
+			dataSearch = dataDate;
+		end
+		local dataSearchNum = #dataSearch;
+		local dataShow = {};
+		
+		for tempNum=skip+1,((skip+pageSize)<=dataSearchNum and skip+pageSize) or dataSearchNum do
+			dataShow[#dataShow+1] = dataSearch[tempNum];
+		end
+		if(dateFormat == 1) then
+			for i,row in pairs(dataShow) do
+				row.value.time = dateNum2Str(row.value.time);
+			end
+		end
+		wp_send_json({total=#dataSearch, table = dataShow, allDataNum = count});
 	end);
 	return;
 end
@@ -126,15 +150,20 @@ PAGE_NO_SIDE_BAR = true;
 		$scope.workspaceDir = "";
 		$scope.relativeDir  = "";
 		$scope.$storage = $localStorage.$default();
-		
+		$scope.dateFormat = 1;
 		
         $scope.tableRecord = [];
         $scope.pageSize = 10;//
         $scope.page = 1;//
         $scope.totalItems = 0;
         
+		$scope.resultTableRecord = [];
+        $scope.resultPageSize = 10;//
+        $scope.resultPage = 1;//
+        $scope.resultTotalItems = 0;
 		$scope.startDate = "";
 		$scope.endDate = "";
+		$scope.search = "";
 		$scope.result = "";
 		
 		var urlPrefix =  '/ajax/logsystem?action=';
@@ -143,21 +172,25 @@ PAGE_NO_SIDE_BAR = true;
 			var relativeDir = $scope.relativeDir;
 			var dbPath = relativeDir.substring(0,relativeDir.lastIndexOf("/"));
 			var tableName = relativeDir.substring(relativeDir.lastIndexOf("/")+1,relativeDir.length-3);
-			$scope.tableRecord = [];
-            var params = {dbPath:dbPath, tableName:tableName, page:$scope.page, pageSize:$scope.pageSize, startDate:$scope.startDate, endDate:$scope.endDate}
+			$scope.resultTableRecord = [];
+            var params = {dbPath:dbPath, tableName:tableName, page:$scope.resultPage, pageSize:$scope.resultPageSize, startDate:$scope.startDate, endDate:$scope.endDate, search:$scope.search, dateFormat:$scope.dateFormat}
 			$http.post(urlPrefix+"getResult", params).then(function (response) {
-                $scope.tableRecord = response.data.table;
-				$scope.totalItems = response.data.total;
-				$scope.totalDataNum = response.data.totalDataNum;
-				console.log($scope.tableRecord[1]);
+                $scope.resultTableRecord = response.data.table;
+				$scope.resultTotalItems = response.data.total;
+				$scope.allDataNum = response.data.allDataNum;
+				console.log($scope.resultTableRecord[1]);
 				$scope.result = "";
-				$scope.result = $scope.result + "totla data:" + $scope.totalDataNum + "\n";
-				$scope.result = $scope.result + "result data:" + $scope.totalItems + "\n";
+				$scope.result = $scope.result + "totla data:" + $scope.allDataNum + "\n";
+				$scope.result = $scope.result + "result data:" + $scope.resultTotalItems + "\n";
             });
 		};
 		$scope.pageChanged = function() {
 			$scope.getTableRecord();
         };
+		$scope.resultPageChanged = function() {
+			$scope.getResult();
+        };
+		
 		$scope.getTableRecord = function () {
 			var relativeDir = $scope.relativeDir;
 			var dbPath = relativeDir.substring(0,relativeDir.lastIndexOf("/"));
@@ -165,7 +198,7 @@ PAGE_NO_SIDE_BAR = true;
 			//console.log(dbPath);
 			//console.log(tableName);
 			$scope.tableRecord = [];
-            var params = {dbPath:dbPath, tableName:tableName, page:$scope.page, pageSize:$scope.pageSize}
+            var params = {dbPath:dbPath, tableName:tableName, page:$scope.page, pageSize:$scope.pageSize, dateFormat:$scope.dateFormat}
             
 			$http.post(urlPrefix+"getTableRecord", params).then(function (response) {
                 $scope.tableRecord = response.data.table;
@@ -173,7 +206,7 @@ PAGE_NO_SIDE_BAR = true;
 				console.log($scope.tableRecord[1]);
 				
             });
-			//$scope.getIndexes();
+			
 			
         }
 		
@@ -260,7 +293,7 @@ PAGE_NO_SIDE_BAR = true;
         <div class="col-md-12">
 			<div class="col-md-4">
 				
-				<table id="filedir" style="height:600px;width:100%;overflow: auto;" class="easyui-treegrid"
+				<table id="filedir" style="height:760px;width:100%;overflow: auto;" class="easyui-treegrid"
 					   url="ajax/world?action=get_world_files&filter=*.db&rootdir="
 					   idField="id" treeField="filename" remoteSort="false" singleSelect="true">
 					<thead>
@@ -271,18 +304,25 @@ PAGE_NO_SIDE_BAR = true;
 				</table>
 			</div>
 			<div class="col-md-8">
-					<table class="table table-striped" style="word-wrap: break-word;table-layout: fixed;">
-						<th class="col-md-2">id</th>
-						<th class="col-md-10">NPL Data Table</th>
+				<table class="table table-striped" style="word-wrap: break-word;table-layout: fixed;">
+					<th class="col-md-2">id</th>
+					<th class="col-md-10">NPL Data Table</th>
+					
+					<tr ng-repeat="obj in tableRecord">
+						<td>{{obj.id}}</td>
+						<td>{{obj.value}}</td>
 						
-						<tr ng-repeat="obj in tableRecord">
-							<td>{{obj.id}}</td>
-							<td>{{obj.value}}</td>
-							
-						</tr>
-					</table>
-					<ul uib-pagination total-items="totalItems" ng-model="page" ng-change="pageChanged()" max-size="5" class="pagination-sm" boundary-links="true" items-per-page="pageSize"></ul>
+					</tr>
+				</table>
+				<ul uib-pagination total-items="totalItems" ng-model="page" ng-change="pageChanged()" max-size="5" class="pagination-sm" boundary-links="true" items-per-page="pageSize"></ul>
+				
             </div>
+			<div class="col-md-2">
+				<input type="text" placeholder="page num" style="width:100%" ng-model="page""/>
+			</div>
+			<div class="col-md-2">
+				<button type="button" ng-click="pageChanged()">go</button>
+			</div>
 		</div>
 	</div>
 	<div class="col-md-12">
@@ -293,15 +333,31 @@ PAGE_NO_SIDE_BAR = true;
                 <label class="control-label">Time:</label>
             </div>
 			<div class="col-md-2">
-                <input type="text" placeholder="enter start date" style="width:100%" ng-model="startDate" ng-init="startDate='20170827215411'"/>
+                <input type="text" placeholder="enter start date" style="width:100%" ng-model="startDate" ng-init="startDate='20170801120120'"/>
 			</div>
 			<div class="col-md-2">
-                <input type="text" placeholder="enter end date" style="width:100%" ng-model="endDate" ng-init="endDate='20170827215511'"/>
+                <input type="text" placeholder="enter end date" style="width:100%" ng-model="endDate" ng-init="endDate='20170801120220'"/>
+			</div>
+			<div class="col-md-2">
+                <input type="text" placeholder="search" style="width:100%" ng-model="search" ng-init="search='op1_1'"/>
 			</div>
 			<div class="col-md-2">
 				<button type="button" ng-click="getResult()">submit</button>
 			</div>
         </form>
+		<div class="col-md-12">
+			<table class="table table-striped" style="word-wrap: break-word;table-layout: fixed;">
+				<th class="col-md-2">id</th>
+				<th class="col-md-10">NPL Data Table</th>
+				
+				<tr ng-repeat="obj in resultTableRecord">
+					<td>{{obj.id}}</td>
+					<td>{{obj.value}}</td>
+					
+				</tr>
+			</table>
+			<ul uib-pagination total-items="resultTotalItems" ng-model="resultPage" ng-change="resultPageChanged()" max-size="5" class="pagination-sm" boundary-links="true" items-per-page="resultPageSize"></ul>
+        </div>
 		
 	</div>
 </div>
