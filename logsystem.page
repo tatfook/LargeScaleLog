@@ -5,7 +5,9 @@ Author:
 Date:
 Desc: 
 ajax:
-
+- API (model/log.page)   
+- BLL (BLL/log.page)   
+- DAL (DAL/log.page   log_MySQL.page) （MySQL, TableDB, postgreSQL, NoSQL, mangoDB）
 ]]
 if(not is_admin()) then
   exit("access denied")
